@@ -1,33 +1,26 @@
 package com.ranieriiuri.taskManagerUninterProject.entity;
 
 import java.time.LocalDate;
-import java.util.List;
 import java.util.Objects;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
 import org.springframework.format.annotation.DateTimeFormat;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.ModelAndView;
 
-public class Tarefa {
+@Entity
+@Table(name="TAREFA")
+public class Tarefa extends AbstractEntity<Long> {
 
-    private Long id;
+    @Column(name = "nome", nullable = false, unique = true, length = 60)
     private String nome;
 
+    @Column(name = "data_entrega", nullable = false, columnDefinition = "DATE")
     @DateTimeFormat(iso= DateTimeFormat.ISO.DATE)
     private LocalDate dataEntrega;
+
+    @Column(name = "responsavel", nullable = false, length = 60)
     private String responsavel;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public String getNome() {
         return nome;
@@ -53,26 +46,4 @@ public class Tarefa {
         this.responsavel = responsavel;
     }
 
-    //sobreescrevendo os metodos toString e hashCode
-    @Override
-    public String toString() {
-        return "Tarefa{" +
-                "id=" + id +
-                ", nome='" + nome + '\'' +
-                ", dataEntrega=" + dataEntrega +
-                ", responsavel='" + responsavel + '\'' +
-                '}';
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (o == null || getClass() != o.getClass()) return false;
-        Tarefa tarefa = (Tarefa) o;
-        return Objects.equals(id, tarefa.id) && Objects.equals(nome, tarefa.nome) && Objects.equals(dataEntrega, tarefa.dataEntrega) && Objects.equals(responsavel, tarefa.responsavel);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, nome, dataEntrega, responsavel);
-    }
 }
