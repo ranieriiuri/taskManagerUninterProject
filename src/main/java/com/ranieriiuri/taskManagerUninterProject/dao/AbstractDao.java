@@ -1,4 +1,4 @@
-package com.example.demomvc.dao;
+package com.ranieriiuri.taskManagerUninterProject.dao;
 
 import java.io.Serializable;
 import java.lang.reflect.ParameterizedType;

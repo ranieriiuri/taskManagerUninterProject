@@ -1,8 +1,8 @@
-package com.example.demomvc.dao;
+package com.ranieriiuri.taskManagerUninterProject.dao;
 
 import java.util.List;
 
-import com.example.demomvc.entity.Tarefa;
+import com.ranieriiuri.taskManagerUninterProject.entity.Tarefa;
 
 public interface TarefaDao {
 	void save(Tarefa tarefa);
