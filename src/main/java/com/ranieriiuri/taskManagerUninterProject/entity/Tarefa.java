@@ -25,6 +25,7 @@ public class Tarefa extends AbstractEntity<Long> {
     @DateTimeFormat(iso= DateTimeFormat.ISO.DATE)
     private LocalDate dataEntrega;
 
+    @NotBlank(message = "O nome do responsável é obrigatório.")
     @Column(name = "responsavel", nullable = false, length = 60)
     private String responsavel;
 

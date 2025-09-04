@@ -12,8 +12,10 @@
 </head>
 <body>
 
+<div th:replace="fragments/alert"></div>
 <form th:action="${tarefa.id == null} ? @{/tarefas/salvar} : @{/tarefas/editar}"
       th:object="${tarefa}" method="POST">
+    <div th:replace="fragments/validacao :: validacao"></div>
 
     <input type="hidden"  th:field="*{id}">
 

@@ -25,7 +25,7 @@ class TarefaServiceTest {
 
     @Test
     @Order(1)
-    void salvar() {
+    void insere() {
         Tarefa tarefa = new Tarefa();
 
         tarefa.setNome("Revisao");
@@ -41,21 +41,21 @@ class TarefaServiceTest {
 
     @Test
     @Order(2)
-    public void buscarPorId() {
+    public void pesquisaPeloId() {
         Tarefa tarefa = ts.buscarPorId(2L);
         System.out.println(tarefa);
     }
 
     @Test
     @Order(3)
-    public void editar() {
+    public void atualiza() {
         Tarefa tarefa = ts.buscarPorId(2L);
         tarefa.setNome("Review");
         ts.editar(tarefa);
     }
     @Test
     @Order(4)
-    public void excluir() {
+    public void remove() {
         Tarefa tarefa = ts.buscarPorId(2L);
 
         ts.excluir(tarefa.getId());
